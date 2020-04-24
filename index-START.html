@@ -47,12 +47,13 @@
 
   function logText(e) {
     console.log(this.classList.value);
+    e.stopPropagation(); //prevents bubbling further than the element clicked 
   }//end logText function
 
 // document.body.addEventListener('click', logText); //click anywhere on body to illustrate bubbling effect of nested divs
 
 divs.forEach(div => div.addEventListener('click', logText, {
-  capture: true
+  capture: false
 } )); //capture will fire down from the top element, instead of waiting until the bottom element to fire while bubbling back up 
 
 </script>
