@@ -40,10 +40,11 @@
   }
 </style>
 
-<button></button>
+<button>I can be clicked once!</button>
 <script>
 
   const divs = document.querySelectorAll('div');
+  const button = document.querySelector('button');
 
   function logText(e) {
     console.log(this.classList.value);
@@ -57,6 +58,12 @@ divs.forEach(div => div.addEventListener('click', logText, {
   once: true
 } )); //capture will fire down from the top element, instead of waiting until the bottom element to fire while bubbling back up 
 //once will render an element unclickable after the first time
+
+button.addEventListener('click', () => {
+  console.log('Clicked it, hope it was worth it.');
+}, {
+  once: true
+});//end button handling
 
 </script>
 </body>
